@@ -1,5 +1,7 @@
 package com.appsdeveloperblog.ws.api.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -16,10 +18,12 @@ import com.appsdeveloperblog.ws.api.response.UserRest;
 @RequestMapping("/users")
 public class UserController {
 
+	@Autowired
+	Environment env;
+	
 	@GetMapping("/status/check")
 	public String status() {
-		return "Working";
-
+		return "Working..." + env.getProperty("local.server.port");
 	}
 	
 	//@Secured("ROLE_developer")
