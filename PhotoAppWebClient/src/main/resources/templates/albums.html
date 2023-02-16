@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>Welcome <span th:text="${username}"></span></p>
+
+	<div th:if="${albums.empty}">
+		<div>No albums found</div>
+	</div>
+	
+	<div th:each="album : ${albums}">
+		<p><span th:text="${album.albumTitle}"></span></p>
+	</div>
+	
+</body>
+</html>
